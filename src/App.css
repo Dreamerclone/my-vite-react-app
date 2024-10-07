@@ -1,6 +1,6 @@
 /* App.css */
 
-/* Reset default margin and padding */
+/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
@@ -8,85 +8,84 @@
 }
 
 body {
-  background-color: #f0f2f5; /* Light grey background */
-  font-family: Arial, sans-serif; /* Font family */
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; /* Light background */
+  color: #333; /* Dark text color */
+  display: flex; /* Flexbox to center content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
 }
 
-#root {
-  max-width: 400px; /* Set max width for forms */
-  margin: 0 auto; /* Center container */
-  padding: 2rem; /* Add padding */
-  text-align: center; /* Center text */
-  background-color: #ffffff; /* White background for the root */
+/* Container for the forms */
+.container {
+  max-width: 400px; /* Limit width */
+  padding: 2rem;
+  background: white; /* White background for forms */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center text */
 }
 
-h1 {
-  margin-bottom: 20px; /* Space below the header */
-  color: #333; /* Dark grey for the header */
+/* Header styles */
+.header {
+  margin-bottom: 1.5rem;
 }
 
-nav {
-  margin-bottom: 20px; /* Space below navigation */
-}
-
-nav a {
-  margin: 0 15px; /* Space between links */
-  text-decoration: none; /* Remove underline */
-  color: #007bff; /* Link color */
-  font-weight: bold; /* Bold links */
-}
-
-nav a:hover {
-  text-decoration: underline; /* Underline links on hover */
-}
-
-.login-container, .registration-container {
-  margin: 20px auto; /* Center container with auto margins */
-  padding: 20px; /* Add padding */
-  border-radius: 8px; /* Rounded corners */
-  border: 1px solid #ddd; /* Light border */
-  background-color: #f9f9f9; /* Light gray background for form containers */
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-}
-
-h2 {
-  margin-bottom: 20px; /* Space below section title */
-  color: #444; /* Darker color for titles */
+/* Form styles */
+.form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
 }
 
 label {
-  display: block; /* Make label block-level for spacing */
-  margin: 10px 0 5px; /* Margin for labels */
-  color: #555; /* Dark gray for labels */
+  margin-bottom: 0.5rem; /* Space between label and input */
+  font-weight: bold; /* Bold labels */
 }
 
-input {
-  width: 100%; /* Full width input */
-  padding: 10px; /* Padding inside input */
-  margin-bottom: 15px; /* Space below input */
-  border: 1px solid #ccc; /* Border for input */
-  border-radius: 4px; /* Rounded corners for input */
-  transition: border-color 0.3s; /* Smooth transition for border color */
+.input-field {
+  padding: 0.75rem; /* Padding for input */
+  margin-bottom: 1rem; /* Space between inputs */
+  border: 1px solid #ccc; /* Border around inputs */
+  border-radius: 5px; /* Rounded corners */
+  width: 100%; /* Full width */
+  font-size: 1rem; /* Font size */
+  background-color: #f1f1f1; /* Light background for input */
+  color: #000; /* Black text color */
 }
 
-input:focus {
-  border-color: #007bff; /* Change border color on focus */
-  outline: none; /* Remove default outline */
+/* Button styles */
+.button {
+  padding: 0.75rem; /* Padding for buttons */
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  font-size: 1rem; /* Font size */
+  transition: background-color 0.3s ease; /* Transition effect */
+  width: 100%; /* Full width */
 }
 
-button {
-  padding: 10px; /* Padding for buttons */
-  border: none; /* Remove border */
-  border-radius: 4px; /* Rounded corners for buttons */
-  background-color: #007bff; /* Button color */
-  color: white; /* Text color */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s; /* Smooth transition for background */
-  width: 100%; /* Full width button */
+.button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
-button:hover {
-  background-color: #0056b3; /* Darker button on hover */
+/* Register button styling */
+.register-button {
+  background-color: #28a745; /* Green background */
+}
+
+.register-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Footer styles */
+.footer {
+  text-align: center; /* Center text */
+  margin-top: 1rem; /* Space above footer */
+}
+
+.footer p {
+  margin: 0.5rem 0; /* Space around text */
 }

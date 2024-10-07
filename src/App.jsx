@@ -1,25 +1,18 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Import Router components
-import './App.css'; // Ensure you have the correct CSS import
-import LoginPage from './components/LoginPage'; // Import the LoginPage component
-import RegistrationPage from './components/RegistrationPage'; // Import the RegistrationPage component
+// src/App.jsx
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import LoginPage from './components/LoginPage';
+import RegistrationPage from './components/RegistrationPage';
 
 function App() {
   return (
     <Router>
-      <>
-        <h1>Welcome to My App</h1> {/* Optional title for your app */}
-
-        {/* Navigation Links */}
-        <nav>
-          <Link to="/login">Login</Link> | 
-          <Link to="/register">Register</Link>
-        </nav>
-
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegistrationPage />} />
-        </Routes>
-      </>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegistrationPage />} />
+        <Route path="/" element={<LoginPage />} /> {/* Default route */}
+      </Routes>
     </Router>
   );
 }
