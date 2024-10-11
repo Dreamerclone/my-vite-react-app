@@ -1,52 +1,47 @@
 // src/components/RegistrationPage.jsx
-
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './RegistrationPage.css'; // Ensure this path is correct
 
 const RegistrationPage = () => {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
-    // Handle registration logic here
-    console.log('Register:', { username, email, password });
+    console.log('Registered:', username, password);
+    alert('Registration successful!');
+    navigate('/login');
   };
 
   return (
-    <div className="container">
-      <h1 className="header">Register</h1>
-      <form onSubmit={handleSubmit} className="form">
-        <label>Username</label>
-        <input
-          type="text"
-          className="input-field"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <label>Email</label>
-        <input
-          type="email"
-          className="input-field"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          className="input-field"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" className="button">Register</button>
+    <div className="form-container">
+      <h2>Register</h2>
+      <form onSubmit={handleRegister}>
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="form-control"
+          />
+        </div>
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="form-control"
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">Register</button>
       </form>
-      <div className="footer">
-        <p>Already have an account?</p>
-        <button onClick={() => window.location.href = '/login'} className="button register-button">Login</button>
-      </div>
+      <button onClick={() => navigate('/login')} className="btn btn-secondary">
+        Go to Login
+      </button>
     </div>
   );
 };

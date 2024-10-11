@@ -1,43 +1,47 @@
 // src/components/LoginPage.jsx
-
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './LoginPage.css'; // Ensure this path is correct
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Login:', { email, password });
+    console.log('Logged in:', username, password);
+    alert('Login successful!');
+    navigate('/dashboard');
   };
 
   return (
-    <div className="container">
-      <h1 className="header">Login</h1>
-      <form onSubmit={handleSubmit} className="form">
-        <label>Email</label>
-        <input
-          type="email"
-          className="input-field"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          className="input-field"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" className="button">Login</button>
+    <div className="form-container">
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="form-control"
+          />
+        </div>
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="form-control"
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">Login</button>
       </form>
-      <div className="footer">
-        <p>Don't have an account?</p>
-        <button onClick={() => window.location.href = '/register'} className="button register-button">Register</button>
-      </div>
+      <button onClick={() => navigate('/register')} className="btn btn-secondary">
+        Go to Register
+      </button>
     </div>
   );
 };
