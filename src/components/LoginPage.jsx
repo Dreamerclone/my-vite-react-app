@@ -1,4 +1,3 @@
-// src/components/LoginPage.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css'; // Ensure this path is correct
@@ -10,9 +9,15 @@ const LoginPage = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('Logged in:', username, password);
-    alert('Login successful!');
-    navigate('/dashboard');
+    
+    // Check for admin credentials
+    if (username === 'admin' && password === 'admin') {
+      console.log('Logged in:', username, password);
+      alert('Login successful!');
+      navigate('/dashboard');
+    } else {
+      alert('Invalid username or password');
+    }
   };
 
   return (
@@ -26,6 +31,7 @@ const LoginPage = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="form-control"
+            required
           />
         </div>
         <div className="form-group">
@@ -35,6 +41,7 @@ const LoginPage = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="form-control"
+            required
           />
         </div>
         <button type="submit" className="btn btn-primary">Login</button>
